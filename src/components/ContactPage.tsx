@@ -8,6 +8,7 @@ import { Button } from './ui/button'
 import { Switch } from './ui/switch'
 import { Label } from './ui/label'
 import { useSession } from 'next-auth/react'
+import { toast } from '@/hooks/use-toast'
 
 export interface Contact {
   id: number
@@ -55,6 +56,9 @@ export default function ContactsPage() {
             status : 'active',
           }
           setContacts([...contacts, newContact])
+          toast({
+            title: "Contato adicionado com sucesso!",
+          })
     }
   }
 
@@ -79,6 +83,9 @@ export default function ContactsPage() {
               contact.id === id ? { ...contact, is_favorite: !contact.is_favorite } : contact
             )
           )
+          toast({
+            title: `Contato favoritado com sucesso!`,
+          })
     }
   }
 
@@ -99,7 +106,9 @@ export default function ContactsPage() {
         }
     });
     const json = await res.json();
- 
+    toast({
+      title: "Contato removido com sucesso!",
+    })
     setContacts(contacts.filter((contact) => contact.id !== id))
   }
   const fetchContacts = async () => {
