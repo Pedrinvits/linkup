@@ -15,7 +15,7 @@ export interface Contact {
   email: string
   city: string
   phone: string
-//   status: string
+  status: string
   is_favorite: boolean
 }
 
@@ -30,7 +30,7 @@ export default function ContactsPage() {
     const data = {
         name,
         phone,
-        city
+        city,
     }
     const url = "http://localhost:8888/api/contacts";
     
@@ -52,6 +52,7 @@ export default function ContactsPage() {
             city,
             phone,
             is_favorite: false,
+            status : 'active',
           }
           setContacts([...contacts, newContact])
     }
