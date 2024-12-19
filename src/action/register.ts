@@ -16,13 +16,15 @@ export const Register = async (values : z.infer<typeof RegisterSchema> ) => {
             error : "Invalid Fields"
         };
     }
-    const {email, password, name} = validatedFields.data
+    const {email, password, name,phone} = validatedFields.data
+
     const fields = {
         email,
         password,
-        name
+        name,
+        phone
     }
-    console.log(fields);
+    // console.log(fields);
     
     try{
         const url = "http://localhost:8888/api/register";
