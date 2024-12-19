@@ -48,7 +48,7 @@ export function getMenuList(pathname: string, user_role: string): Group[] {
             menus: [
                 {
                     href: "/s",
-                    label: "Saves",
+                    label: "Salvos",
                     icon: Bookmark
                 },
                 {
@@ -58,7 +58,7 @@ export function getMenuList(pathname: string, user_role: string): Group[] {
                 },
                 {
                     href: "/fo",
-                    label: "Follow",
+                    label: "Seguir",
                     icon: UserRoundPlus
                 }
             ]

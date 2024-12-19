@@ -1,50 +1,44 @@
 # LinkUp
 
-LinkUp is a social network for programmers. With LinkUp, users can follow other programmers, make posts, interact with posts, and access an exclusive dashboard for administrators.
+LinkUp é um sistema de gestão de contatos projetado como uma agenda telefônica para cadastrar e gerenciar contatos. Os usuários podem fazer login, registrar-se, favoritar e excluir contatos de forma simples.
 
+<img src="https://github.com/Pedrinvits/LinkUp/blob/master/src/public/linkup.png">
 
-<img   src="https://github.com/Pedrinvits/LinkUp/blob/master/src/public/schema.png">
+<img src="https://github.com/Pedrinvits/LinkUp/blob/master/src/public/schema.png">
 
-## Features
-- **Follow Users**: Follow other programmers to keep up with their posts.
-- **Posts**: Share knowledge and ideas through posts.
-- **Interactions**: Like, comment, and share other users' posts.
-- **Admin Dashboard**: An exclusive panel where administrators can manage platform content.
+## Funcionalidades
+- **Autenticação de Usuários**: Faça login e registre-se para gerenciar seus contatos com segurança.
+- **Adicionar Contatos**: Cadastre novos contatos com facilidade.
+- **Favoritar Contatos**: Marque contatos importantes como favoritos para acesso rápido.
+- **Excluir Contatos**: Remova contatos que você não precisa mais.
 
-## Project Structure
+## Estrutura do Projeto
 
-The project uses the following technologies:
-- **Node.js and npm** for backend management.
-- **Docker** to create development containers.
-- **Prisma** for database management.
+O projeto utiliza as seguintes tecnologias:
+- **Laravel.js e composer** para gestão do backend.
+- **Docker** para criar containers de desenvolvimento.
+- **Mysql** para gestão do banco de dados.
 
-## Requirements
+## Requisitos
 
-- **Node.js**: Install the latest version of Node.js.
-- **Docker**: Required to run the application containers.
-- **Prisma**: An ORM (Object-Relational Mapping) for the database.
+- **Node.js**: v22.11.0.
+- **Docker**: Necessário para executar os containers da aplicação.
 
-## Installation and Execution Commands
+## Comandos de Instalação e Execução
 
-To set up the environment and run the application, follow these steps:
+Para configurar o ambiente e executar a aplicação, siga os seguintes passos:
 
-1. Clone the repository:
+1. Clone o repositório:
    
    ```bash
-   git clone https://github.com/yourusername/LinkUp.git
+   git clone https://github.com/pedrinvits/LinkUp.git
    cd LinkUp
-2. Install dependencies with npm:
+   ```
+
+2. Instale as dependências com npm:
    
    ```bash
    npm install
+   ```
+3. Acesse o projeto no seu navegador em http://localhost:3002
 
-3. Start the containers with Docker:
-
-   ```bash
-   docker-compose up -d
-
-4. Set up the database with Prisma:
-   ```bash
-   npx prisma db push
-
-5. Access the project in your browser at http://localhost:3002
