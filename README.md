@@ -3,7 +3,7 @@
 LinkUp is a social network for programmers. With LinkUp, users can follow other programmers, make posts, interact with posts, and access an exclusive dashboard for administrators.
 
 
-<img   src="https://github.com/Pedrinvits/LinkUp/blob/master/src/public/LinkUp.PNG">
+<img   src="https://github.com/Pedrinvits/LinkUp/blob/master/src/public/schema.png">
 
 ## Features
 - **Follow Users**: Follow other programmers to keep up with their posts.
@@ -47,4 +47,4 @@ To set up the environment and run the application, follow these steps:
    ```bash
    npx prisma db push
 
-5. Access the project in your browser at http://localhost:3000
+5. Access the project in your browser at http://localhost:3002
