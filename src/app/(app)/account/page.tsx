@@ -12,7 +12,7 @@ import SideBarControl from "@/components/side-bar-control";
 const AccountPage = async () => {
     const session: any = await auth();
     
-    // console.log(user.profileImageUrl);
+    console.log('session ---',session.data);
     return (
         <div className="flex h-fit p-2 sm:w-3xl sm:mx-auto ">
             <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-card rounded-lg shadow-lg mt-6">
@@ -24,7 +24,14 @@ const AccountPage = async () => {
                         <TabsTrigger value="danger">Danger Zone</TabsTrigger>
                     </TabsList>
                     <TabsContent value="general">
-                        {/* <AccountSettings name={user.name} email={user.email} photo_user_profile={user.profileImageUrl} /> */}
+                        <AccountSettings 
+                        name={session.data.name} 
+                        email={session.data.email} 
+                        photo_user_profile={'#'} 
+                        status={session.data.status} 
+                        token={session.data.token} 
+                        id={session.data.id}
+                        />
                     </TabsContent>
                     <TabsContent value="appearance">
                         <Card>

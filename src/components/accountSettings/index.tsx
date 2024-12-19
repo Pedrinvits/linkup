@@ -29,13 +29,16 @@ interface AccountSettingsProps {
     name : string,
     email : string,
     photo_user_profile : string,
+    status : string,
+    token : string,
+    id : string,
 }
-export default function AccountSettings({name,email,photo_user_profile} : AccountSettingsProps) {
+export default function AccountSettings({name,email,photo_user_profile,status,token,id} : AccountSettingsProps) {
 
   const { toast } = useToast()
   const [selectedOption, setSelectedOption] = useState("profile")
   const [seePassword,SetseePassword] = useState<boolean>(false)
-  const [userData, setUserData] = useState({ name, email });
+  const [userData, setUserData] = useState({ name, email,status });
 
   const [passwordData, setpasswordData] = useState<StatePassword>({ 
     currentpassword : '', newpassword : '', confirmpassword : '' 
@@ -44,12 +47,28 @@ export default function AccountSettings({name,email,photo_user_profile} : Accoun
   const [newPhoto, setNewPhoto] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(photo_user_profile);
   const [loading,SetLoading] = useState(false)
-  // console.log(props);
-  // console.log(photoPreview);
-  
+
   const handleProfileUpdate = async () => {
     SetLoading(true)
     try {
+
+      const url = `http://localhost:8888/api/users/${id}`;
+      
+      const res = await fetch(url,{
+        method : "PUT",
+        headers : { 
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(userData),
+      })
+      const data = await res.json();
+      if(data){
+        toast({
+          title: data.message,
+        })
+      }
+      
     }
     catch(err){
       console.log(err);
@@ -98,6 +117,13 @@ export default function AccountSettings({name,email,photo_user_profile} : Accoun
               className="w-full justify-start"
             >
               Password
+            </Button>
+            <Button
+              variant={selectedOption === "status" ? "secondary" : "ghost"}
+              onClick={() => setSelectedOption("status")}
+              className="w-full justify-start"
+            >
+              Status
             </Button>
   
             {/* <Button
@@ -177,6 +203,30 @@ export default function AccountSettings({name,email,photo_user_profile} : Accoun
                       </div>
                       <Button className="w-full" onClick={handlePasswordUpdate}>
                         {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Change Password'}
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {selectedOption === "status" && (
+                  <div id="status" className="space-y-6">
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-semibold">Status</h3>
+                      <p className="text-muted-foreground">Troque seu status aqui</p>
+                    </div>
+                    <div className="grid gap-4">
+                      <div className="grid grid-cols-[120px_1fr] items-center gap-4">
+                        <Label htmlFor="current-password">Status atual</Label>
+                        <Input 
+                          id="currentStatus" 
+                          type={'text'} 
+                          placeholder="Coloque seu status" 
+                          defaultValue={status} 
+                          onChange={(e) => setUserData({...userData, status:e.target.value})}
+                          />
+                      </div>
+                      <Button className="w-full" onClick={handleProfileUpdate}>
+                        {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Definir status'}
                       </Button>
                     </div>
                   </div>
