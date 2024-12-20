@@ -15,7 +15,7 @@ export default function ContactList({ contacts, onToggleFavorite, onRemoveContac
     <div className="space-y-4">
       <Input
         type="text"
-        placeholder="Search contacts..."
+        placeholder="Procurar contatos..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="mb-4"

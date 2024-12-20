@@ -9,7 +9,7 @@ interface ContactItemProps {
 }
 
 export default function ContactItem({ contact, onToggleFavorite,onRemoveContact }: ContactItemProps) {
-  const status = contact?.user?.status;
+  const status = contact?.user_info?.status;
   const formatPhoneNumber = (phone: string) => {
     const cleaned = phone.replace(/\D/g, '');
     if (cleaned.length === 11) {
@@ -22,6 +22,9 @@ export default function ContactItem({ contact, onToggleFavorite,onRemoveContact 
     const handleCopy = () => {
     onCopy(formatPhoneNumber(contact.phone))
   }
+
+  // console.log("CONTATO", contact);
+  
   return(
     <li className="flex items-center justify-between bg-card border p-4 rounded-lg shadow">
       <div>

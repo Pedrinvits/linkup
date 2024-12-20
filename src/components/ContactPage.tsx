@@ -32,6 +32,7 @@ export default function ContactsPage() {
         name,
         phone,
         city,
+        email
     }
     const url = "http://localhost:8888/api/contacts";
     
@@ -60,6 +61,9 @@ export default function ContactsPage() {
             title: "Contato adicionado com sucesso!",
           })
     }
+    toast({
+      title: json.message,
+    })
   }
 
   const toggleFavorite = async (id: number) => {
