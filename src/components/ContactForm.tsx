@@ -15,8 +15,8 @@ export default function ContactForm({ onAddContact }: ContactFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (name.trim() && city.trim()) {
-      onAddContact(name.trim(), city.trim(),email.trim(),phone.trim())
+    if (true) {
+      onAddContact(name.trim(), email,city.trim(),phone.trim())
       setName('')
       setcity('')
       setEmail('')
