@@ -36,7 +36,7 @@ export const Register = async (values : z.infer<typeof RegisterSchema> ) => {
         const data = await res.json();
         
         if(data.errors){
-            return {error : "Usuário já cadastrado" }
+            return {error : data.errors }
         }
         
     }
