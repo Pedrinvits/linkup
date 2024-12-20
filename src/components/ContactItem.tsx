@@ -32,7 +32,13 @@ export default function ContactItem({ contact, onToggleFavorite,onRemoveContact 
       <div>
         <div className="flex gap-4 items-center justify-center">
         <h3 className="font-semibold">{contact.name}</h3>
-        <span className='inline-flex h-5 items-center gap-0.5 whitespace-nowrap rounded-full px-1.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-teal-100 bg-teal-100 text-teal-700 hover:border-teal-100 hover:bg-teal-100 focus:border-teal-100 focus:bg-teal-100 focus-visible:border-teal-100 focus-visible:bg-teal-100 mr-1 cursor-default'>{status || contact.status}</span>
+        
+        { (status || contact.status ) == 'ocupado' ? 
+          <span className='inline-flex h-5 items-center gap-0.5 whitespace-nowrap rounded-full px-1.5 text-xs  transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-red-100 bg-red-200 text-red-900 hover:border-red-100 hover:bg-red-100 focus:border-red-100 focus:bg-red-100 focus-visible:border-red-100 focus-visible:bg-red-100 mr-1 cursor-default font-bold'>{status || contact.status}</span>
+          :
+          <span className='inline-flex h-5 items-center gap-0.5 whitespace-nowrap rounded-full px-1.5 text-xs font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-teal-100 bg-teal-100 text-teal-700 hover:border-teal-100 hover:bg-teal-100 focus:border-teal-100 focus:bg-teal-100 focus-visible:border-teal-100 focus-visible:bg-teal-100 mr-1 cursor-default'>{status || contact.status}</span>
+        }
+
         </div>
         <p className="text-sm text-gray-600">{formatPhoneNumber(contact.phone)}</p>
       </div>
