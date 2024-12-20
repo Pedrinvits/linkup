@@ -1,6 +1,8 @@
 import { Check, Copy, Star, Trash2 } from 'lucide-react'
 import { Button } from './ui/button'
 import { useClipboard } from '@/hooks/use-clipboard'
+import Link from 'next/link'
+import { FaWhatsapp } from 'react-icons/fa'
 
 interface ContactItemProps {
   contact: any
@@ -35,6 +37,12 @@ export default function ContactItem({ contact, onToggleFavorite,onRemoveContact 
         <p className="text-sm text-gray-600">{formatPhoneNumber(contact.phone)}</p>
       </div>
       <div className='flex items-center justify-center gap-2'>
+      <Link 
+        href={`https://wa.me/55${contact.phone}`}
+        target='_blank'
+      >
+      <FaWhatsapp />
+      </Link>
       <button
         onClick={() => onToggleFavorite(contact.id)}
         className={`p-2 rounded-full ${
